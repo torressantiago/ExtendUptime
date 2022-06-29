@@ -30,7 +30,7 @@ void Timer1_config(){
     TCCR1B |= (1 << CS12);
     // Output Compare Match A Interrupt Enable
     TIMSK1 |= (1 << OCIE1A);
-  	sei(); // allow interrupts
+    sei(); // allow interrupts
 }
 
 void externalInterrupt_config(){
@@ -47,7 +47,7 @@ void externalInterrupt_config(){
 /*------- Interrupts -------*/
 ISR(TIMER1_COMPA_vect){
     // Change value of output pin to 0
-	PORTB &= (0 << PORTB5);
+    PORTB &= (0 << PORTB5);
 
     // Clear Output Compare Match A Interrupt
     TIMSK1 &= (0 << OCIE1A);
