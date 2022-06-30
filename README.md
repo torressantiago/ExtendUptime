@@ -12,4 +12,8 @@ You can test this setup @: https://www.tinkercad.com/things/3YCzbEGLNoQ-smashing
 Below you can find an example of timing of a pin change interrupt that was extracted from the datasheet (p.79)
 ![setup](Doc/TimingInterrupt.png)
 
-From the image we can conclude that it will take at most three clock cycles to begin the interruption associated to a rising edge in port INT0. Thus, we can expect a delay between said rising edge and the rise of output pin PORTB5 to be: (3*(1/clk_freq)+time_to_change_output_state), where *time_to_change_output_state* should be in the order of nanoseconds.
+From the image we can conclude that it will take at most three clock cycles to begin the interruption associated to a rising edge in port INT0. Thus, we can expect a delay between said rising edge and the rise of output pin PORTB5 to be: (3*(1/clk_freq)+time_to_change_output_state)±(1/clk_freq), where *time_to_change_output_state* should be in the order of nanoseconds.
+
+```
+Note: For Arduino boards, the clock frequency (unless an external crystal is used) is of 16MHz.
+```
