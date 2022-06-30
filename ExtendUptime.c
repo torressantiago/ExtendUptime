@@ -21,7 +21,7 @@ int main(void){
 
 /*------- Configuration Functions -------*/
 void Timer1_config(){
-  	cli(); // stop interrupts
+    cli(); // stop interrupts
     // 2 Hz (16000000/((31249+1)*256))
     OCR1A = 31249;
     // CTC
